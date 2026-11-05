@@ -59,6 +59,20 @@ button:focus-visible {
   letter-spacing: 0.5px;
 }
 
+.menu-toggle {
+  display: none;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: #14273f;
+  color: #ffffff;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+}
+
 .navbar {
   position: sticky;
   top: 0;
@@ -138,6 +152,64 @@ main li {
 
 main ul li::marker {
   color: #f4a261;
+}
+
+.acordeon {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.acordeon::after {
+  content: ' ▾';
+  font-size: 0.8em;
+  color: #f4a261;
+  margin-left: 0.5rem;
+}
+
+.acordeon[aria-expanded="false"]::after {
+  content: ' ▸';
+}
+
+/* Panel de sección ocultable */
+.panel-seccion {
+  transition: all 0.3s ease;
+}
+
+.panel-seccion.oculto {
+  display: none;
+}
+
+
+.volver-arriba {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background-color: #f4a261;
+  color: #14273f;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: opacity 0.3s ease, transform 0.2s ease;
+  z-index: 99;
+}
+
+.volver-arriba:hover {
+  transform: translateY(-3px);
+}
+
+.volver-arriba.visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .pie {
